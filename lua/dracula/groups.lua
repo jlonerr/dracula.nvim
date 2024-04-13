@@ -66,10 +66,10 @@ local function setup(configs)
       StorageClass = { fg = colors.pink, },
       Structure = { fg = colors.yellow, },
       TypeDef = { fg = colors.yellow, },
-      Special = { fg = colors.green, italic = true },
-      SpecialComment = { fg = colors.comment, italic = true, },
+      Special = { fg = colors.green, italic = false },
+      SpecialComment = { fg = colors.comment, italic = false, },
       Error = { fg = colors.bright_red, },
-      Todo = { fg = colors.purple, bold = true, italic = true, },
+      Todo = { fg = colors.purple, bold = true, italic = false, },
       Underlined = { fg = colors.cyan, underline = true, },
 
       Cursor = { reverse = true, },
@@ -172,7 +172,7 @@ local function setup(configs)
       ['@operator'] = { fg = colors.pink, },
       ['@keyword.exception'] = { fg = colors.purple, },
       ['@type'] = { fg = colors.bright_cyan, },
-      ['@type.builtin'] = { fg = colors.cyan, italic = true, },
+      ['@type.builtin'] = { fg = colors.cyan, italic = false, },
       ['@type.qualifier'] = { fg = colors.pink, },
       ['@structure'] = { fg = colors.purple, },
       ['@keyword.include'] = { fg = colors.pink, },
@@ -181,12 +181,12 @@ local function setup(configs)
       ['@variable.builtin'] = { fg = colors.purple, },
 
       ['@markup'] = { fg = colors.orange, },
-      ['@markup.strong'] = { fg = colors.orange, bold = true, },     -- bold
-      ['@markup.emphasis'] = { fg = colors.yellow, italic = true, }, -- italic
+      ['@markup.strong'] = { fg = colors.orange, bold = true, },      -- bold
+      ['@markup.emphasis'] = { fg = colors.yellow, italic = false, }, -- italic
       ['@markup.underline'] = { fg = colors.orange, },
-      ['@markup.heading'] = { fg = colors.pink, bold = true, },        -- title
-      ['@markup.raw'] = { fg = colors.yellow, },                 -- inline code
-      ['@markup.link.url'] = { fg = colors.yellow, italic = true, },      -- urls
+      ['@markup.heading'] = { fg = colors.pink, bold = true, },       -- title
+      ['@markup.raw'] = { fg = colors.yellow, },                      -- inline code
+      ['@markup.link.url'] = { fg = colors.yellow, italic = false, }, -- urls
       ['@markup.link'] = { fg = colors.orange, bold = true, },
 
       ['@tag'] = { fg = colors.cyan, },
@@ -231,7 +231,7 @@ local function setup(configs)
       htmlH4 = { fg = colors.pink, },
       htmlH5 = { fg = colors.pink, },
       htmlH6 = { fg = colors.pink, },
-      htmlItalic = { fg = colors.purple, italic = true, },
+      htmlItalic = { fg = colors.purple, italic = false, },
       htmlLink = { fg = colors.purple, underline = true, },
       htmlSpecialChar = { fg = colors.yellow, },
       htmlSpecialTagName = { fg = colors.cyan, },
@@ -241,7 +241,7 @@ local function setup(configs)
       htmlTitle = { fg = colors.white, },
 
       -- Markdown
-      markdownBlockquote = { fg = colors.yellow, italic = true, },
+      markdownBlockquote = { fg = colors.yellow, italic = false, },
       markdownBold = { fg = colors.orange, bold = true, },
       markdownCode = { fg = colors.green, },
       markdownCodeBlock = { fg = colors.orange, },
@@ -257,7 +257,7 @@ local function setup(configs)
       markdownId = { fg = colors.purple, },
       markdownIdDeclaration = { fg = colors.cyan, },
       markdownIdDelimiter = { fg = colors.purple, },
-      markdownItalic = { fg = colors.yellow, italic = true, },
+      markdownItalic = { fg = colors.yellow, italic = false, },
       markdownLinkDelimiter = { fg = colors.purple, },
       markdownLinkText = { fg = colors.pink, },
       markdownListMarker = { fg = colors.cyan, },
@@ -298,7 +298,7 @@ local function setup(configs)
       TelescopeResultsDiffAdd = { fg = colors.green },
 
       -- Flash
-      FlashLabel =  { bg = colors.red, fg = colors.bright_white },
+      FlashLabel = { bg = colors.red, fg = colors.bright_white },
 
       -- NvimTree
       NvimTreeNormal = { fg = colors.fg, bg = colors.menu, },
@@ -401,10 +401,10 @@ local function setup(configs)
       BufferTabpageFill = { fg = colors.nontext, bg = colors.black },
       BufferCurrentSign = { fg = colors.purple },
       BufferCurrentTarget = { fg = colors.red },
-      BufferInactive = { fg = colors.comment, bg = colors.black, italic = true },
-      BufferInactiveIndex = { fg = colors.nontext, bg = colors.black, italic = true },
-      BufferInactiveMod = { fg = colors.yellow, bg = colors.black, italic = true },
-      BufferInactiveSign = { fg = colors.nontext, bg = colors.black, italic = true },
+      BufferInactive = { fg = colors.comment, bg = colors.black, italic = false },
+      BufferInactiveIndex = { fg = colors.nontext, bg = colors.black, italic = false },
+      BufferInactiveMod = { fg = colors.yellow, bg = colors.black, italic = false },
+      BufferInactiveSign = { fg = colors.nontext, bg = colors.black, italic = false },
       BufferInactiveTarget = { fg = colors.red, bg = colors.black, bold = true },
 
       -- Compe
@@ -482,8 +482,8 @@ local function setup(configs)
 
       -- Rainbow delimiter
       RainbowDelimiterRed = { fg = colors.fg },
-      RainbowDelimiterYellow = {fg = colors.pink },
-      RainbowDelimiterBlue = {fg = colors.cyan },
+      RainbowDelimiterYellow = { fg = colors.pink },
+      RainbowDelimiterBlue = { fg = colors.cyan },
       RainbowDelimiterOrange = { fg = colors.green },
       RainbowDelimiterGreen = { fg = colors.purple },
       RainbowDelimiterViolet = { fg = colors.orange },
@@ -498,13 +498,13 @@ local function setup(configs)
       AlphaHeader = { fg = colors.purple },
       AlphaButtons = { fg = colors.cyan },
       AlphaShortcut = { fg = colors.orange },
-      AlphaFooter = { fg = colors.purple, italic = true },
+      AlphaFooter = { fg = colors.purple, italic = false },
 
       -- nvimdev/dashboard-nvim
       DashboardShortCut = { fg = colors.cyan },
       DashboardHeader = { fg = colors.purple },
       DashboardCenter = { fg = colors.fg },
-      DashboardFooter = { fg = colors.purple, italic = true },
+      DashboardFooter = { fg = colors.purple, italic = false },
       DashboardKey = { fg = colors.orange },
       DashboardDesc = { fg = colors.cyan },
       DashboardIcon = { fg = colors.cyan, bold = true },
