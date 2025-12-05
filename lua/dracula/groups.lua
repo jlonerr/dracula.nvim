@@ -620,7 +620,7 @@ local function setup(configs)
       SnacksDashboardKey = { fg = colors.orange },
       SnacksDashboardDesc = { fg = colors.cyan },
       SnacksDashboardIcon = { fg = colors.cyan },
-      SnacksDashboardFooter = { fg = colors.purple, italic = true },
+      SnacksDashboardFooter = { fg = colors.purple, italic = false },
 
       -- SnacksPicker
       SnacksBackdrop = { link = "FloatShadow" },
@@ -636,7 +636,7 @@ local function setup(configs)
       SnacksPickerGitStatusUntracked = { fg = colors.green },
       SnacksPickerInput = { link = "NormalFloat" },
       SnacksPickerInputBorder = { link = "SnacksPickerBorder" },
-      SnacksPickerMatch = { fg = colors.green, italic = true },
+      SnacksPickerMatch = { fg = colors.green, italic = false },
       SnacksPickerPathHidden = { fg = colors.comment },
       SnacksPickerPrompt = { fg = colors.purple },
       SnacksPickerTitle = { fg = colors.cyan, bold = true },
