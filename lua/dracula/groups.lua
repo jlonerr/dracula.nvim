@@ -31,6 +31,8 @@
 ---@nodiscard
 local function setup(configs)
    local colors = configs.colors
+   assert(colors ~= nil, "Must pass colors")
+
    local endOfBuffer = {
       fg = configs.show_end_of_buffer and colors.visual or colors.bg,
    }
@@ -82,7 +84,7 @@ local function setup(configs)
       CursorLine = { bg = colors.selection, },
       ColorColumn = { bg = colors.selection, },
 
-      StatusLine = { fg = colors.white, bg = colors.black, },
+      StatusLine = { fg = colors.white, bg = colors.selection, },
       StatusLineNC = { fg = colors.comment, },
       StatusLineTerm = { fg = colors.white, bg = colors.black, },
       StatusLineTermNC = { fg = colors.comment, },
@@ -246,12 +248,12 @@ local function setup(configs)
       markdownCode = { fg = colors.green, },
       markdownCodeBlock = { fg = colors.orange, },
       markdownCodeDelimiter = { fg = colors.red, },
-      markdownH1 = { fg = colors.pink, bold = true, },
-      markdownH2 = { fg = colors.pink, bold = true, },
-      markdownH3 = { fg = colors.pink, bold = true, },
-      markdownH4 = { fg = colors.pink, bold = true, },
-      markdownH5 = { fg = colors.pink, bold = true, },
-      markdownH6 = { fg = colors.pink, bold = true, },
+      markdownH2 = { link = "rainbow2" },
+      markdownH1 = { link = "rainbow1" },
+      markdownH3 = { link = "rainbow3" },
+      markdownH4 = { link = "rainbow4" },
+      markdownH5 = { link = "rainbow5" },
+      markdownH6 = { link = "rainbow6" },
       markdownHeadingDelimiter = { fg = colors.red, },
       markdownHeadingRule = { fg = colors.comment, },
       markdownId = { fg = colors.purple, },
@@ -263,6 +265,12 @@ local function setup(configs)
       markdownListMarker = { fg = colors.cyan, },
       markdownOrderedListMarker = { fg = colors.red, },
       markdownRule = { fg = colors.comment, },
+      ['@markup.heading.1.markdown'] = { link = 'rainbowcol1' },
+		['@markup.heading.2.markdown'] = { link = 'rainbowcol2' },
+		['@markup.heading.3.markdown'] = { link = 'rainbowcol3' },
+		['@markup.heading.4.markdown'] = { link = 'rainbowcol4' },
+		['@markup.heading.5.markdown'] = { link = 'rainbowcol5' },
+		['@markup.heading.6.markdown'] = { link = 'rainbowcol6' },
 
       --  Diff
       diffAdded = { fg = colors.green, },
@@ -440,6 +448,37 @@ local function setup(configs)
       CmpItemKindStruct = { link = "@structure" },
       CmpItemKindTypeParameter = { link = "@variable.parameter" },
 
+      -- Blink
+      BlinkCmpLabel = { fg = colors.white, bg = colors.menu },
+      BlinkCmpLabelDeprecated = { fg = colors.white, bg = colors.menu },
+      BlinkCmpLabelMatch = { fg = colors.cyan, bg = colors.menu },
+      BlinkCmpKind = { fg = colors.white, bg = colors.menu },
+      BlinkCmpScrollBarThumb = { bg = colors.fg },
+      BlinkCmpScrollBarGutter = { bg = colors.menu },
+      BlinkCmpKindFunction = { link = "@function" },
+      BlinkCmpKindConstructor = { link = "@type" },
+      BlinkCmpKindVariable = { link = "@variable" },
+      BlinkCmpKindClass = { link = "@type" },
+      BlinkCmpKindInterface = { link = "@type" },
+      BlinkCmpKindModule = { link = "@module" },
+      BlinkCmpKindProperty = { link = "@property" },
+      BlinkCmpKindOperator = { link = "@operator" },
+      BlinkCmpKindReference = { link = "@variable.parameter.reference" },
+      BlinkCmpKindUnit = { link = "@variable.member" },
+      BlinkCmpKindValue = { link = "@variable.member" },
+      BlinkCmpKindField = { link = "@variable.member" },
+      BlinkCmpKindEnum = { link = "@variable.member" },
+      BlinkCmpKindKeyword = { link = "@keyword" },
+      BlinkCmpKindSnippet = { link = "@markup" },
+      BlinkCmpKindColor = { link = "DevIconCss" },
+      BlinkCmpKindFile = { link = "TSURI" },
+      BlinkCmpKindFolder = { link = "TSURI" },
+      BlinkCmpKindEvent = { link = "@constant" },
+      BlinkCmpKindEnumMember = { link = "@variable.member" },
+      BlinkCmpKindConstant = { link = "@constant" },
+      BlinkCmpKindStruct = { link = "@structure" },
+      BlinkCmpKindTypeParameter = { link = "@variable.parameter" },
+
       -- navic
       NavicIconsFile = { link = "CmpItemKindFile" },
       NavicIconsModule = { link = "CmpItemKindModule" },
@@ -493,6 +532,36 @@ local function setup(configs)
       MiniIndentscopeSymbol = { fg = "#B5629B" },
       MiniIndentscopeSymbolOff = { fg = "#B5629B" },
 
+      -- mini.icons
+      MiniIconsAzure = { fg = colors.bright_cyan },
+      MiniIconsBlue = { fg = colors.bright_blue },
+      MiniIconsCyan = { fg = colors.cyan },
+      MiniIconsGrey = { fg = colors.white },
+      MiniIconsOrange = { fg = colors.orange },
+      MiniIconsPurple = { fg = colors.purple },
+      MiniIconsRed = { fg = colors.red },
+      MiniIconsYellow = { fg = colors.yellow },
+
+      -- mini.statusline
+      MiniStatuslineModeNormal = { fg = colors.black, bg = colors.purple, bold = true },
+      MiniStatuslineModeInsert = { fg = colors.black, bg = colors.green, bold = true },
+      MiniStatuslineModeVisual = { fg = colors.black, bg = colors.pink, bold = true },
+      MiniStatuslineModeReplace = { fg = colors.black, bg = colors.yellow, bold = true },
+      MiniStatuslineModeCommand = { fg = colors.black, bg = colors.cyan, bold = true },
+      MiniStatuslineInactive = { fg = colors.fg, bg = colors.visual, bold = true },
+      MiniStatuslineDevinfo = { fg = colors.purple, bg = colors.black },
+      MiniStatuslineFilename = { fg = colors.white, bg = colors.black },
+      MiniStatuslineFileinfo = { fg = colors.purple, bg = colors.black },
+
+      -- mini.files
+      MiniFilesNormal = { fg = colors.fg, bg = colors.menu },
+      MiniFilesBorder = { fg = colors.purple, bg = colors.menu },
+      MiniFilesBorderModified = { },
+      MiniFilesCursorLine = { bg = colors.selection, },
+      MiniFilesDirectory = { fg = colors.fg },
+      MiniFilesFile = { fg = colors.fg },
+      MiniFilesTitle = { fg = colors.fg },
+      MiniFilesTitleFocused = { fg = colors.yellow },
 
       -- goolord/alpha-nvim
       AlphaHeader = { fg = colors.purple },
@@ -545,6 +614,44 @@ local function setup(configs)
       NotifyWarnIcon = { fg = colors.orange },
       NotifyWarnTitle = { fg = colors.orange },
       NotifyWarnBorder = { fg = "#785637" },
+
+      -- SnacksDashboard
+      SnacksDashboardHeader = { fg = colors.purple },
+      SnacksDashboardKey = { fg = colors.orange },
+      SnacksDashboardDesc = { fg = colors.cyan },
+      SnacksDashboardIcon = { fg = colors.cyan },
+      SnacksDashboardFooter = { fg = colors.purple, italic = true },
+
+      -- SnacksPicker
+      SnacksBackdrop = { link = "FloatShadow" },
+      SnacksPickerBorder = { fg = colors.comment },
+      SnacksPickerDir = { fg = colors.fg },
+      SnacksPickerDirectory = { fg = colors.fg },
+      SnacksPickerFile = { fg = colors.fg },
+      SnacksPickerGitStatusIgnored = { fg = colors.comment },
+      SnacksPickerGitStatusModified = { fg = colors.yellow },
+      SnacksPickerGitStatusRenamed = { fg = colors.yellow },
+      SnacksPickerGitStatusStaged = { fg = colors.bright_green },
+      SnacksPickerGitStatusUnmerged = { fg = colors.orange },
+      SnacksPickerGitStatusUntracked = { fg = colors.green },
+      SnacksPickerInput = { link = "NormalFloat" },
+      SnacksPickerInputBorder = { link = "SnacksPickerBorder" },
+      SnacksPickerMatch = { fg = colors.green, italic = true },
+      SnacksPickerPathHidden = { fg = colors.comment },
+      SnacksPickerPrompt = { fg = colors.purple },
+      SnacksPickerTitle = { fg = colors.cyan, bold = true },
+
+      -- Neogit
+      NeogitDiffAdd = { fg = colors.bright_green, bg = colors.menu },
+      NeogitDiffDelete = { fg = colors.bright_red, bg = colors.menu },
+      NeogitDiffContext = { fg = colors.comment, bg = colors.visual },
+      NeogitDiffAddHighlight = { fg = colors.green, bg = colors.bg },
+      NeogitDiffDeleteHighlight = { fg = colors.red, bg = colors.bg },
+      NeogitDiffContextHighlight = { fg = colors.comment, bg = colors.visual },
+      NeogitDiffAddCursor = { fg = colors.green, bg = colors.selection },
+      NeogitDiffDeleteCursor = { fg = colors.red, bg = colors.selection },
+      NeogitDiffContextCursor = { fg = colors.comment, bg = colors.selection },
+
    }
 end
 
